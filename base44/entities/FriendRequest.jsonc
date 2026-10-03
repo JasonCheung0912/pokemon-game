@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "from_id": {
+      "type": "string",
+      "default": ""
+    },
+    "from_name": {
+      "type": "string",
+      "default": ""
+    },
+    "to_id": {
+      "type": "string",
+      "default": ""
+    },
+    "to_name": {
+      "type": "string",
+      "default": ""
+    },
+    "status": {
+      "type": "string",
+      "default": "pending"
+    }
+  },
+  "name": "FriendRequest"
+}
