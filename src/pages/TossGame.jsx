@@ -234,7 +234,7 @@ export default function TossGame({ profile, onProfile }) {
         else { ctx.fillStyle = 'rgba(255,255,255,0.6)'; ctx.beginPath(); ctx.arc(0, 0, 38, 0, Math.PI * 2); ctx.fill(); }
         if (t.capturing > 0) {
           const p = 1 - t.capturing / CAPTURE_TIME;
-          ctx.strokeStyle = `rgba(255,255,255,${0.9 - p \* 0.5})`;
+          ctx.strokeStyle = `rgba(255,255,255,${0.9 - p * 0.5})`;
           ctx.lineWidth = 5;
           ctx.beginPath(); ctx.arc(0, 0, 46 + p * 26, 0, Math.PI * 2); ctx.stroke();
           drawBall(ctx, 0, 0, 22 + Math.sin(p * Math.PI * 6) * 3, p * Math.PI * 3, def.top);

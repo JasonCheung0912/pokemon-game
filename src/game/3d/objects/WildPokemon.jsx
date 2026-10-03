@@ -71,7 +71,7 @@ function spawnPokemon(id, nearPlayer = false) {
   const stats = getStageStats(species);
 
   return {
-    id: id || `wild\_${Date.now()}\_${Math.random()}`,
+    id: id || `wild_${Date.now()}_${Math.random()}`,
     species: species.id, name: species.name, type: species.type,
     color: species.color, bodyType: species.bodyType,
     hp: stats.hp, maxHp: stats.hp, attack: stats.attack,
@@ -151,7 +151,7 @@ export function WildPokemonManager() {
     const onGameStarted = () => {
       pokemonList.current = [];
       for (let i = 0; i < WORLD.wildPokemonCount; i++) {
-        const wp = spawnPokemon(`wild\_init\_${i}`);
+        const wp = spawnPokemon(`wild_init_${i}`);
         if (wp) pokemonList.current.push(wp);
       }
       world.wildPokemon = pokemonList.current;

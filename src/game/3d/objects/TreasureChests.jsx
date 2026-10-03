@@ -70,7 +70,7 @@ function spawnChest() {
   const z = zone.zMin + Math.random() * (zone.zMax - zone.zMin);
   if (isOverWater(x, z)) return spawnChest();
   return {
-    id: `chest\_${Date.now()}\_${Math.random()}`,
+    id: `chest_${Date.now()}_${Math.random()}`,
     position: { x, z },
     baseY: getTerrainHeight(x, z),
     collected: false,

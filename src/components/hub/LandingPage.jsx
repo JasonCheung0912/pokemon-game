@@ -17,7 +17,7 @@ export function LandingPage({ onEnter }) {
           <div key={i} className="flex items-center justify-center">
             <img src={getSpriteUrl(s.id) || ''} alt=""
               className="w-14 h-14 sm:w-20 sm:h-20 object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.55)]"
-              style={{ animation: `poke-float ${3.5 + (i % 5)}s ease-in-out ${i \* 0.14}s infinite alternate` }} />
+              style={{ animation: `poke-float ${3.5 + (i % 5)}s ease-in-out ${i * 0.14}s infinite alternate` }} />
           </div>
         ))}
       </div>

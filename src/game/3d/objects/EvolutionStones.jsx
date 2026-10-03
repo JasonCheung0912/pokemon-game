@@ -77,7 +77,7 @@ function spawnStone() {
   if (isOverWater(x, z)) return spawnStone();
 
   return {
-    id: `stone\_${Date.now()}\_${Math.random()}`,
+    id: `stone_${Date.now()}_${Math.random()}`,
     type: stone.type, color: stone.color,
     position: { x, y: 0, z },
     collected: false,

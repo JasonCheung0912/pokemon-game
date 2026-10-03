@@ -12,7 +12,7 @@ function HpBar({ hp, maxHp, w = 'w-32 sm:w-40' }) {
   return (
     <div className={`${w} h-3 bg-slate-700 rounded-full overflow-hidden`}>
       <div className="h-full rounded-full transition-all"
-        style={{ width: `${r \* 100}%`, backgroundColor: r > 0.5 ? '#4ade80' : r > 0.25 ? '#fbbf24' : '#ef4444' }} />
+        style={{ width: `${r * 100}%`, backgroundColor: r > 0.5 ? '#4ade80' : r > 0.25 ? '#fbbf24' : '#ef4444' }} />
     </div>
   );
 }
@@ -43,7 +43,7 @@ function TeamDots({ team, activeIdx }) {
     <div className="flex gap-1.5">
       {team.map((p, i) => (
         <div key={i} title={p.name}
-          className={`w-6 h-6 rounded-full text-\[10px] font-bold flex items-center justify-center border-2 ${
+          className={`w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center border-2 ${
             i === activeIdx ? 'border-white bg-white/20 text-white'
               : p.hp <= 0 ? 'border-slate-600 bg-slate-800 text-slate-500 line-through'
               : 'border-slate-500 bg-slate-700 text-slate-300'
@@ -93,7 +93,7 @@ export function DuelArena({ playerData, players, friends, forcedOpponent, mode, 
         let log = `${opp.name} used ${moveName} — ${dmg} damage!${effText}`;
         if (newHp <= 0) {
           if (prev.myIdx >= 2) { over = 'lose'; log += ` All your Pokémon fainted — you lose the duel!`; }
-          else { myIdx = prev.myIdx + 1; log += ` ${mine.name} fainted — go, ${myTeam\[myIdx].name}!`; }
+          else { myIdx = prev.myIdx + 1; log += ` ${mine.name} fainted — go, ${myTeam[myIdx].name}!`; }
         }
         return { ...prev, myTeam, myIdx, log, over, turn: over ? 'opp' : 'me' };
       });
@@ -116,7 +116,7 @@ export function DuelArena({ playerData, players, friends, forcedOpponent, mode, 
     let log = `${mine.name} used ${moveName} — ${dmg} damage!${effText}`;
     if (newHp <= 0) {
       if (b.oppIdx >= 2) { over = 'win'; log += ` ${opp.name} fainted — VICTORY!`; }
-      else { oppIdx = b.oppIdx + 1; log += ` ${opp.name} fainted — ${oppTeam\[oppIdx].name} is sent out!`; }
+      else { oppIdx = b.oppIdx + 1; log += ` ${opp.name} fainted — ${oppTeam[oppIdx].name} is sent out!`; }
     }
     const cooldown = isStreak ? DUEL.cooldownRounds : Math.max(0, b.cooldown - 1);
     setBattle({ ...b, oppTeam, oppIdx, log, cooldown, over, turn: over ? 'me' : 'opp' });
@@ -150,7 +150,7 @@ export function DuelArena({ playerData, players, friends, forcedOpponent, mode, 
         setBattle({
           myTeam, oppTeam, myIdx: 0, oppIdx: 0, cooldown: 0, over: null,
           turn: first === 'opp' ? 'opp' : 'me',
-          log: first === 'opp' ? `${opponent.username}'s ${oppTeam\[0].name} strikes first!` : 'You strike first!',
+          log: first === 'opp' ? `${opponent.username}'s ${oppTeam[0].name} strikes first!` : 'You strike first!',
         });
         setStage('battle');
         if (first === 'opp') scheduleOppTurn();

@@ -127,7 +127,7 @@ function Waterfall({ data }) {
       </mesh>
       <mesh position={[0, data.fallHeight / 2, -0.5]}>
         <boxGeometry args={[5, data.fallHeight, 1]} />
-        <meshStandardMaterial color={PALETTE.rock\[1]} flatShading />
+        <meshStandardMaterial color={PALETTE.rock[1]} flatShading />
       </mesh>
     </group>
   );

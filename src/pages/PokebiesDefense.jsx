@@ -228,7 +228,7 @@ export default function PokebiesDefense({ profile, onProfile }) {
       ctx.fillStyle = 'rgba(15,23,42,0.9)'; ctx.strokeStyle = '#000'; ctx.lineWidth = 3;
       ctx.beginPath(); ctx.roundRect(70, 8, 330, 56, 10); ctx.fill(); ctx.stroke();
       ctx.fillStyle = '#a3e635'; ctx.font = 'bold 18px sans-serif';
-      ctx.fillText(`⚡ ${Math.floor(g.energy)}  •  🌊 Wave ${g.wave}  •  💚 ${LEAKS\_ALLOWED - g.leaks} leaks left`, 82, 30);
+      ctx.fillText(`⚡ ${Math.floor(g.energy)}  •  🌊 Wave ${g.wave}  •  💚 ${LEAKS_ALLOWED - g.leaks} leaks left`, 82, 30);
       ctx.fillStyle = '#fca5a5'; ctx.font = 'bold 13px sans-serif';
       ctx.fillText(`☠️ ${g.kills} defeated • 🐲 ${g.bosses} bosses`, 82, 52);
 
@@ -267,8 +267,8 @@ export default function PokebiesDefense({ profile, onProfile }) {
         <div className="flex flex-wrap gap-2 p-3 border-b-4 border-black bg-slate-950/70">
           {UNITS.map(u => (
             <button key={u.id} onClick={() => { audio.sfx.click(); setSelected(u.id); setClearArm(false); }}
-              className={`flex-1 min-w-\[130px] p-2 rounded-xl border-2 text-left transition-all ${
-                selected === u.id \&\& !clearArm ? 'border-lime-400 bg-lime-400/10' : 'border-slate-700 bg-slate-800/70 hover:border-slate-500'}`}>
+              className={`flex-1 min-w-[130px] p-2 rounded-xl border-2 text-left transition-all ${
+                selected === u.id && !clearArm ? 'border-lime-400 bg-lime-400/10' : 'border-slate-700 bg-slate-800/70 hover:border-slate-500'}`}>
               <div className="flex items-center gap-2">
                 <img src={getSpriteUrl(u.species) || ''} alt={u.name} className="w-9 h-9 object-contain" />
                 <div className="min-w-0">

@@ -81,7 +81,7 @@ export function makeBotTeam(mode, streak) {
     used.add(s.id);
     const st = getStageStats(s);
     const hp = Math.round(st.hp * mult), atk = Math.round(st.attack * mult);
-    team.push({ uid: `bot\_${s.id}`, species: s.id, name: s.name, type: s.type, color: s.color, bodyType: s.bodyType, hp, maxHp: hp, attack: atk, fainted: false });
+    team.push({ uid: `bot_${s.id}`, species: s.id, name: s.name, type: s.type, color: s.color, bodyType: s.bodyType, hp, maxHp: hp, attack: atk, fainted: false });
   }
   return team;
 }

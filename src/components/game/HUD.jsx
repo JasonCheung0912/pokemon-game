@@ -25,7 +25,7 @@ export function HUD({ playerData, dayNight, onOpenShop, onOpenInventory, onPause
                 <div className="mt-1 w-36 h-2.5 bg-slate-700 rounded-full overflow-hidden">
                   <div className="h-full rounded-full transition-all"
                     style={{
-                      width: `${Math.max(0, hpRatio \* 100)}%`,
+                      width: `${Math.max(0, hpRatio * 100)}%`,
                       backgroundColor: activePokemon.fainted ? '#666' : hpRatio > 0.5 ? '#4ade80' : hpRatio > 0.25 ? '#fbbf24' : '#ef4444',
                     }}
                   />

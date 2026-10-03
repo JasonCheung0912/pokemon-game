@@ -8,7 +8,7 @@ function HpBar({ ratio, colors }) {
   return (
     <div className="h-4 bg-slate-700 rounded-full overflow-hidden">
       <div className="h-full rounded-full transition-all duration-700 ease-out"
-        style={{ width: `${Math.max(0, ratio) \* 100}%`, backgroundColor: colors }} />
+        style={{ width: `${Math.max(0, ratio) * 100}%`, backgroundColor: colors }} />
     </div>
   );
 }

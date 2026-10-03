@@ -84,7 +84,7 @@ export function ArcadeMenu({ profile, onProfile }) {
                           <div className="text-slate-400 text-[10px]">{b.desc}</div>
                         </div>
                         <HubButton disabled={owned || !afford} onClick={() => buyBall(id)}
-                          className={`!px-2 !py-1 text-\[11px] ${owned ? 'bg-slate-600 text-slate-300' : 'bg-yellow-400 text-slate-900'}`}>
+                          className={`!px-2 !py-1 text-[11px] ${owned ? 'bg-slate-600 text-slate-300' : 'bg-yellow-400 text-slate-900'}`}>
                           {owned ? 'Owned' : `🪙${b.price}`}
                         </HubButton>
                       </div>
@@ -146,7 +146,7 @@ export function ArcadeMenu({ profile, onProfile }) {
                       <div className="text-white font-bold text-xs">{t.icon} {t.name}</div>
                       {unlocked
                         ? <HubButton onClick={() => onProfile(p => ({ ...p, targetSet: id }))}
-                            className={`!px-2 !py-1 text-\[11px] ${selected ? 'bg-emerald-500 text-white' : 'bg-yellow-400 text-slate-900'}`}>
+                            className={`!px-2 !py-1 text-[11px] ${selected ? 'bg-emerald-500 text-white' : 'bg-yellow-400 text-slate-900'}`}>
                             {selected ? 'Active' : 'Select'}
                           </HubButton>
                         : <HubButton disabled={coins < t.price} onClick={() => unlockTarget(id)}

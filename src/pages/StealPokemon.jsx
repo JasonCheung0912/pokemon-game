@@ -123,7 +123,7 @@ export default function StealPokemon({ profile, onProfile }) {
           const stolen = b.storage.shift();
           p.carrying = stolen;
           audio.sfx.ball();
-          setHud(h => ({ ...h, msg: `🏃 Snatched ${POKEMON\_SPECIES.find(s => s.id === stolen.species)?.name}! Get home!` }));
+          setHud(h => ({ ...h, msg: `🏃 Snatched ${POKEMON_SPECIES.find(s => s.id === stolen.species)?.name}! Get home!` }));
         }
         return;
       }
@@ -269,7 +269,7 @@ export default function StealPokemon({ profile, onProfile }) {
         const laserY = b.mine ? b.y : b.y + b.h;
         const locked = b.mine ? g.laser.active > 0 : b.locked;
         if (locked) {
-          ctx.strokeStyle = `rgba(255,60,60,${0.6 + Math.sin(g.t \* 10) \* 0.3})`; ctx.lineWidth = 5;
+          ctx.strokeStyle = `rgba(255,60,60,${0.6 + Math.sin(g.t * 10) * 0.3})`; ctx.lineWidth = 5;
           ctx.beginPath(); ctx.moveTo(b.x, laserY); ctx.lineTo(b.x + b.w, laserY); ctx.stroke();
         }
       }

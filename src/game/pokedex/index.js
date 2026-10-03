@@ -163,7 +163,7 @@ TABLE.forEach(([dex, , type, , evo]) => {
 });
 
 if (POKEMON_SPECIES.length !== 1025) {
-  console.warn(`Pokédex incomplete: ${POKEMON\_SPECIES.length}/1025 species`);
+  console.warn(`Pokédex incomplete: ${POKEMON_SPECIES.length}/1025 species`);
 } else {
   console.log('National Pokédex loaded: 1025 species');
 }

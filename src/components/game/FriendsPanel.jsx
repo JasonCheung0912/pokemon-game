@@ -145,7 +145,7 @@ export function FriendsPanel({ playerData, players, onClose, onDuelFriend }) {
               </div>
             ))}
             {outgoing.map(r => (
-              <div key={`o\_${r.id}`} className="flex items-center justify-between bg-slate-700/40 rounded-xl p-3">
+              <div key={`o_${r.id}`} className="flex items-center justify-between bg-slate-700/40 rounded-xl p-3">
                 <span className="text-slate-300 text-sm">➡️ Waiting for {r.to_name} to add you back…</span>
                 <button onClick={async () => { await base44.entities.FriendRequest.delete(r.id); loadRequests(); }}
                   className="px-3 py-1.5 rounded-lg bg-red-700 hover:bg-red-600 text-white text-xs font-bold">✕ Cancel</button>

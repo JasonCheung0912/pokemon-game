@@ -24,7 +24,7 @@ export function ShopOverlay({ playerData, onBuy, onExpToMoney, onClose }) {
               <p className="text-slate-400 text-sm">Convert {EXP_TO_MONEY.exp} EXP → ${EXP_TO_MONEY.money}</p>
             </div>
             <button onClick={onExpToMoney} disabled={exp < EXP_TO_MONEY.exp}
-              className={`px-4 py-2 rounded-lg font-bold transition-colors ${exp >= EXP\_TO\_MONEY.exp ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-slate-700 text-slate-500 cursor-not-allowed'}`}>
+              className={`px-4 py-2 rounded-lg font-bold transition-colors ${exp >= EXP_TO_MONEY.exp ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-slate-700 text-slate-500 cursor-not-allowed'}`}>
               Exchange
             </button>
           </div>

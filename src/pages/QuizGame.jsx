@@ -216,7 +216,7 @@ export default function QuizGame({ profile, onProfile }) {
       {/* Timer bar */}
       <div className="w-full max-w-3xl h-3 bg-slate-800 rounded-full overflow-hidden border-2 border-black mt-2">
         <div className="h-full rounded-full transition-all duration-100"
-          style={{ width: `${Math.max(0, (timeLeft / baseTime) \* 100)}%`, backgroundColor: Date.now() < frozenUntil ? '#93c5fd' : timeLeft <= 3 ? '#ef4444' : '#4ade80' }} />
+          style={{ width: `${Math.max(0, (timeLeft / baseTime) * 100)}%`, backgroundColor: Date.now() < frozenUntil ? '#93c5fd' : timeLeft <= 3 ? '#ef4444' : '#4ade80' }} />
       </div>
 
       {/* Start screen */}
@@ -252,7 +252,7 @@ export default function QuizGame({ profile, onProfile }) {
               <button key={h.id} onClick={() => activateHelper(h)} disabled={(tokens[h.id] || 0) <= 0}
                 title={`${h.name} — ${h.desc} (earn 1 every ${h.every.streak ? `${h.every.streak} streak`:`${h.every.correct} correct`})`}
                 className={`shrink-0 px-2 py-1 rounded-lg text-xs font-bold border-2 transition-all ${
-                  (tokens\[h.id] || 0) > 0
+                  (tokens[h.id] || 0) > 0
                     ? 'bg-cyan-600 border-cyan-300 text-white hover:scale-105 cursor-pointer'
                     : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'}`}>
                 {h.icon} {h.name} <span className="text-yellow-300">×{tokens[h.id] || 0}</span>
@@ -278,7 +278,7 @@ export default function QuizGame({ profile, onProfile }) {
             {visibleOptions.map(opt => (
               <HubButton key={opt.id} onClick={() => answer(opt)}
                 className={`w-full !py-3 text-base ${
-                  feedback?.correct \&\& opt.id === q.correct.id ? 'bg-green-500 text-white'
+                  feedback?.correct && opt.id === q.correct.id ? 'bg-green-500 text-white'
                   : 'bg-purple-700 text-white'}`}>
                 {opt.name}
               </HubButton>
@@ -291,13 +291,13 @@ export default function QuizGame({ profile, onProfile }) {
 
       {/* Feedback banner — wrong answers never reveal the correct option */}
       {feedback && q && (
-        <div className={`mt-4 px-6 py-2.5 rounded-xl font-extrabold text-white border-2 border-black shadow-\[3px\_3px\_0\_rgba(0,0,0,0.4)] ${
+        <div className={`mt-4 px-6 py-2.5 rounded-xl font-extrabold text-white border-2 border-black shadow-[3px_3px_0_rgba(0,0,0,0.4)] ${
           feedback.shielded ? 'bg-emerald-600' : feedback.correct ? 'bg-green-600' : 'bg-red-600'}`}>
           {feedback.shielded
             ? '🛡️ Forgiven — no time lost!'
             : feedback.correct
               ? `✔ ${q.correct.name}! +${feedback.gained} points${feedback.doubled ? ' 💰' : ''}${feedback.ball ? ' • 🎯 +1 Pokéball!' : ''}${feedback.speedDrop ? ` • ⏱ clock down to ${feedback.speedDrop}s!` : ''}`
-              : `✘ Wrong! −${WRONG\_PENALTY}s`}
+              : `✘ Wrong! −${WRONG_PENALTY}s`}
         </div>
       )}
       {helperMsg && !feedback && (

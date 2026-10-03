@@ -227,7 +227,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         } else if (r < 0.95) {
           const species = getRandomSpecies(true);
           const { isDuplicate, team } = mergeDuplicate(prev.team, {
-            uid: `poke\_${Date.now()}\_${Math.random()}`,
+            uid: `poke_${Date.now()}_${Math.random()}`,
             species: species.id, name: species.name, type: species.type, color: species.color,
             bodyType: species.bodyType, hp: getStageStats(species).hp, maxHp: getStageStats(species).hp, attack: getStageStats(species).attack, fainted: false,
           });
@@ -330,7 +330,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
     const species = POKEMON_SPECIES.find(s => s.id === starterId);
     if (!species) return;
     const starter = {
-      uid: `poke\_${Date.now()}\_${Math.random()}`,
+      uid: `poke_${Date.now()}_${Math.random()}`,
       species: species.id, name: species.name, type: species.type, color: species.color, bodyType: species.bodyType,
       hp: getStageStats(species).hp, maxHp: getStageStats(species).hp, attack: getStageStats(species).attack, fainted: false, inParty: true,
     };
@@ -353,7 +353,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
     const stage = getSpecies(enemyData.species)?.stage ?? 0;
     const reward = WIN_REWARDS[stage] || WIN_REWARDS[0];
     audio.sfx.win();
-    showNotification(`Victory! +$${reward.money} \& +${reward.exp} EXP!`, 'success');
+    showNotification(`Victory! +$${reward.money} & +${reward.exp} EXP!`, 'success');
     arenaCatchRef.current?.();
     setPlayerData(prev => {
       if (!prev) return prev;
@@ -361,7 +361,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
       const newBadges = [...prev.badges];
       EXP_BADGES.forEach(badge => { if (newExp >= badge.exp && !newBadges.includes(badge.name)) newBadges.push(badge.name); });
       const { isDuplicate, team } = mergeDuplicate(prev.team, {
-        uid: `poke\_${Date.now()}\_${Math.random()}`,
+        uid: `poke_${Date.now()}_${Math.random()}`,
         species: enemyData.species, name: enemyData.name, type: enemyData.type, color: enemyData.color,
         bodyType: enemyData.bodyType, hp: enemyData.maxHp, maxHp: enemyData.maxHp, attack: enemyData.attack, fainted: false,
       });
@@ -456,7 +456,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
     const legacy = ballType === 'master_ball' ? 'master_pokeball' : ballType;
     const items = pd.items || [];
     const idx = items.indexOf(ballType) !== -1 ? items.indexOf(ballType) : items.indexOf(legacy);
-    if (idx === -1) { showNotification(`No ${POKEBALLS\[ballType].name}!`, 'error'); return; }
+    if (idx === -1) { showNotification(`No ${POKEBALLS[ballType].name}!`, 'error'); return; }
     audio.sfx.ball();
     const stage = getSpecies(current.enemy.species)?.stage ?? 0;
     const success = Math.random() < (POKEBALLS[ballType].rates[stage] ?? 0);
@@ -469,11 +469,11 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         const i = newItems.indexOf(ballType) !== -1 ? newItems.indexOf(ballType) : newItems.indexOf(legacy);
         if (i !== -1) newItems.splice(i, 1);
         const { isDuplicate, team } = mergeDuplicate(prev.team, {
-          uid: `poke\_${Date.now()}\_${Math.random()}`,
+          uid: `poke_${Date.now()}_${Math.random()}`,
           species: enemyData.species, name: enemyData.name, type: enemyData.type, color: enemyData.color,
           bodyType: enemyData.bodyType, hp: enemyData.maxHp, maxHp: enemyData.maxHp, attack: enemyData.attack, fainted: false,
         });
-        showNotification(isDuplicate ? `${enemyData.name} merged! +5 HP/ATK` : `${enemyData.name} captured with a ${POKEBALLS\[ballType].name}!`, 'success');
+        showNotification(isDuplicate ? `${enemyData.name} merged! +5 HP/ATK` : `${enemyData.name} captured with a ${POKEBALLS[ballType].name}!`, 'success');
         return { ...prev, team, items: newItems };
       });
       audio.sfx.capture();
@@ -560,7 +560,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         case 'random_box': {
           const species = getRandomSpecies(true);
           const { team } = mergeDuplicate(prev.team, {
-            uid: `poke\_${Date.now()}\_${Math.random()}`,
+            uid: `poke_${Date.now()}_${Math.random()}`,
             species: species.id, name: species.name, type: species.type, color: species.color, bodyType: species.bodyType,
             hp: getStageStats(species).hp, maxHp: getStageStats(species).hp, attack: getStageStats(species).attack, fainted: false,
           });
@@ -579,7 +579,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         case 'random_pokeball': {
           const purchases = (prev.random_ball_purchases || 0) + 1;
           const ball = rollRandomBall(purchases);
-          showNotification(`Got a ${POKEBALLS\[ball].name}!${ball === 'admin\_ball' ? ' 🏆' : ''}`, 'success');
+          showNotification(`Got a ${POKEBALLS[ball].name}!${ball === 'admin_ball' ? ' 🏆' : ''}`, 'success');
           return { ...prev, exp: prev.exp - item.price, items: [...(prev.items || []), ball], random_ball_purchases: purchases };
         }
         default: return prev;
@@ -664,7 +664,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         const activeIdx = prev.active_index ?? 0;
         const newTeam = [...prev.team];
         if (newTeam[activeIdx]) newTeam[activeIdx] = { ...newTeam[activeIdx], hp: newTeam[activeIdx].maxHp, fainted: false };
-        showNotification(`${newTeam\[activeIdx]?.name} fully healed!`, 'success');
+        showNotification(`${newTeam[activeIdx]?.name} fully healed!`, 'success');
         return { ...prev, team: newTeam, items };
       }
       if (itemType === 'hp_upgrade') {
@@ -672,7 +672,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         const activeIdx = prev.active_index ?? 0;
         const newTeam = [...prev.team];
         if (newTeam[activeIdx]) { const m = newTeam[activeIdx].maxHp + 5; newTeam[activeIdx] = { ...newTeam[activeIdx], maxHp: m, hp: m, fainted: false }; }
-        showNotification(`${newTeam\[activeIdx]?.name} gained +5 HP!`, 'success');
+        showNotification(`${newTeam[activeIdx]?.name} gained +5 HP!`, 'success');
         return { ...prev, team: newTeam, items };
       }
       if (itemType === 'atk_upgrade') {
@@ -680,7 +680,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         const activeIdx = prev.active_index ?? 0;
         const newTeam = [...prev.team];
         if (newTeam[activeIdx]) newTeam[activeIdx] = { ...newTeam[activeIdx], attack: newTeam[activeIdx].attack + 3 };
-        showNotification(`${newTeam\[activeIdx]?.name} gained +3 ATK!`, 'success');
+        showNotification(`${newTeam[activeIdx]?.name} gained +3 ATK!`, 'success');
         return { ...prev, team: newTeam, items };
       }
       return prev;
@@ -690,7 +690,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
   const handleExpToMoney = useCallback(() => {
     setPlayerData(prev => {
       if (!prev || prev.exp < EXP_TO_MONEY.exp) { showNotification('Not enough EXP!', 'error'); return prev; }
-      showNotification(`Converted ${EXP\_TO\_MONEY.exp} EXP → $${EXP\_TO\_MONEY.money}!`, 'success');
+      showNotification(`Converted ${EXP_TO_MONEY.exp} EXP → $${EXP_TO_MONEY.money}!`, 'success');
       return { ...prev, exp: prev.exp - EXP_TO_MONEY.exp, money: prev.money + EXP_TO_MONEY.money };
     });
   }, [showNotification]);
@@ -708,7 +708,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         case 'pokemon': {
           const species = getRandomSpecies(true);
           const { team } = mergeDuplicate(prev.team, {
-            uid: `poke\_${Date.now()}\_${Math.random()}`,
+            uid: `poke_${Date.now()}_${Math.random()}`,
             species: species.id, name: species.name, type: species.type, color: species.color, bodyType: species.bodyType,
             hp: getStageStats(species).hp, maxHp: getStageStats(species).hp, attack: getStageStats(species).attack, fainted: false,
           });
@@ -768,7 +768,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
       const species = getRandomSpecies(true);
       const st = getStageStats(species);
       const { isDuplicate, team } = mergeDuplicate(prev.team, {
-        uid: `poke\_${Date.now()}\_${Math.random()}`,
+        uid: `poke_${Date.now()}_${Math.random()}`,
         species: species.id, name: species.name, type: species.type, color: species.color, bodyType: species.bodyType,
         hp: st.hp, maxHp: st.hp, attack: st.attack, fainted: false,
       });
@@ -782,7 +782,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
       const idx = prev.active_index ?? 0;
       const newTeam = [...prev.team];
       if (newTeam[idx]) { const m = newTeam[idx].maxHp + 10; newTeam[idx] = { ...newTeam[idx], maxHp: m, hp: Math.min(m, newTeam[idx].hp + 10) }; }
-      showNotification(`${newTeam\[idx]?.name} gained +10 max HP!`, 'success');
+      showNotification(`${newTeam[idx]?.name} gained +10 max HP!`, 'success');
       return { ...prev, team: newTeam };
     });
   }, [showNotification]);
@@ -792,13 +792,13 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
       const idx = prev.active_index ?? 0;
       const newTeam = [...prev.team];
       if (newTeam[idx]) newTeam[idx] = { ...newTeam[idx], attack: newTeam[idx].attack + 10 };
-      showNotification(`${newTeam\[idx]?.name} gained +10 ATK!`, 'success');
+      showNotification(`${newTeam[idx]?.name} gained +10 ATK!`, 'success');
       return { ...prev, team: newTeam };
     });
   }, [showNotification]);
   const handleAdminGiveBall = useCallback((ball) => {
     setPlayerData(prev => prev ? { ...prev, items: [...(prev.items || []), ball] } : prev);
-    showNotification(`Got a ${POKEBALLS\[ball].name}!`, 'success');
+    showNotification(`Got a ${POKEBALLS[ball].name}!`, 'success');
   }, [showNotification]);
   // Creator-only: grant every species in the Pokédex (plus Jasytherion Aetherium)
   const handleAdminGiveAll = useCallback(() => {
@@ -810,7 +810,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
         if (team.some(p => p.species === s.id)) return;
         const st = getStageStats(s.id);
         team = [...team, {
-          uid: `poke\_${Date.now()}\_${s.id}`,
+          uid: `poke_${Date.now()}_${s.id}`,
           species: s.id, name: s.name, type: s.type, color: s.color, bodyType: s.bodyType,
           hp: st.hp, maxHp: st.hp, attack: st.attack, fainted: false,
         }];
@@ -855,7 +855,7 @@ export default function GamePage({ onExitToHub, onArenaCatch }) {
     const species = getRandomSpecies(true);
     const st = getStageStats(species);
     const { team } = mergeDuplicate(p.team || [], {
-      uid: `admin\_gift\_${Date.now()}\_${species.id}`,
+      uid: `admin_gift_${Date.now()}_${species.id}`,
       species: species.id, name: species.name, type: species.type, color: species.color, bodyType: species.bodyType,
       hp: st.hp, maxHp: st.hp, attack: st.attack, fainted: false,
     });

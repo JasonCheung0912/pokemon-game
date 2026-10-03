@@ -14,7 +14,7 @@ function HpBar({ hp, maxHp }) {
   return (
     <div className="w-24 sm:w-32 h-3 bg-slate-700 rounded-full overflow-hidden">
       <div className="h-full rounded-full transition-all"
-        style={{ width: `${r \* 100}%`, backgroundColor: r > 0.5 ? '#4ade80' : r > 0.25 ? '#fbbf24' : '#ef4444' }} />
+        style={{ width: `${r * 100}%`, backgroundColor: r > 0.5 ? '#4ade80' : r > 0.25 ? '#fbbf24' : '#ef4444' }} />
     </div>
   );
 }
@@ -89,7 +89,7 @@ export function TeamBattle({ playerData, players, friends, onDuelEnd, onBack }) 
     const updatedDef = defTeam.map((p, i) => i === di ? { ...p, hp: newHp } : p);
     log = `${atk.owner}: ${atk.name} used ${moveName} — ${dmg} dmg!${effText}`;
     if (newHp <= 0) {
-      if (di + 1 < defTeam.length) { ni = di + 1; log += ` ${def.name} fainted — ${updatedDef\[ni].name} steps in!`; }
+      if (di + 1 < defTeam.length) { ni = di + 1; log += ` ${def.name} fainted — ${updatedDef[ni].name} steps in!`; }
       else { over = mySide ? 'win' : 'lose'; log += mySide ? ' Every foe fainted — TEAM VICTORY! 🏆' : ' Your whole team fainted — defeat.'; }
     }
     setBattle(prev => ({

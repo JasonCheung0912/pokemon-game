@@ -96,7 +96,7 @@ export function AdminBuild() {
       const x = Math.max(-lim, Math.min(lim, world.playerPosition.x + dir.x * dist));
       const z = Math.max(-lim, Math.min(lim, world.playerPosition.z + dir.z * dist));
       const y = getTerrainHeight(x, z);
-      const obj = { id: `built\_${Date.now()}\_${Math.random()}`, type: world.buildObjectType, x, y, z };
+      const obj = { id: `built_${Date.now()}_${Math.random()}`, type: world.buildObjectType, x, y, z };
       world.builtObjects.push(obj);
       setObjects([...world.builtObjects]);
     };

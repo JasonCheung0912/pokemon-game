@@ -21,7 +21,7 @@ export default function Game({ onReady }) {
         if (typeof onReady === 'function') onReady(state);
       }}
     >
-      <KeyboardControls map={KEYBOARD\_MAP}>
+      <KeyboardControls map={KEYBOARD_MAP}>
         <GameScene />
       </KeyboardControls>
     </Canvas>

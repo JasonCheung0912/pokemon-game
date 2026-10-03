@@ -143,11 +143,11 @@ export function DayNight() {
   return (
     <>
       <ambientLight ref={ambLightRef} intensity={0.6} />
-      <directionalLight ref={dirLightRef} castShadow position={\[50,50,20]} intensity={1.5}
-        shadow-mapSize={\[2048,2048]} shadow-camera-left={-80} shadow-camera-right={80}
+      <directionalLight ref={dirLightRef} castShadow position={[50,50,20]} intensity={1.5}
+        shadow-mapSize={[2048,2048]} shadow-camera-left={-80} shadow-camera-right={80}
         shadow-camera-top={80} shadow-camera-bottom={-80} shadow-camera-near={0.1} shadow-camera-far={250} />
-      <mesh ref={sunRef}><sphereGeometry args={\[8,16,16]} /><meshBasicMaterial color={PALETTE.sunDay} fog={false} /></mesh>
-      <mesh ref={sunGlowRef}><sphereGeometry args={\[14,16,16]} /><meshBasicMaterial color={PALETTE.sunSet} transparent opacity={0.2} fog={false} /></mesh>
+      <mesh ref={sunRef}><sphereGeometry args={[8,16,16]} /><meshBasicMaterial color={PALETTE.sunDay} fog={false} /></mesh>
+      <mesh ref={sunGlowRef}><sphereGeometry args={[14,16,16]} /><meshBasicMaterial color={PALETTE.sunSet} transparent opacity={0.2} fog={false} /></mesh>
       <group ref={cloudsRef}><Clouds /></group>
     </>
   );
