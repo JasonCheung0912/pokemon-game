@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "properties": {
+    "money": {
+      "type": "number",
+      "default": 0
+    },
+    "exp": {
+      "type": "number",
+      "default": 0
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "team": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    },
+    "stones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "click_damage": {
+      "type": "number",
+      "default": 10
+    },
+    "active_index": {
+      "type": "number",
+      "default": 0
+    },
+    "has_started": {
+      "type": "boolean",
+      "default": false
+    },
+    "difficulty": {
+      "type": "string",
+      "default": "easy"
+    },
+    "last_login_date": {
+      "type": "string",
+      "default": ""
+    },
+    "daily_streak_day": {
+      "type": "number",
+      "default": 0
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "last_team_reset": {
+      "type": "string",
+      "default": ""
+    },
+    "random_ball_purchases": {
+      "type": "number",
+      "default": 0
+    },
+    "username": {
+      "type": "string",
+      "default": ""
+    },
+    "duel_streak": {
+      "type": "number",
+      "default": 0
+    },
+    "duel_best_streak": {
+      "type": "number",
+      "default": 0
+    },
+    "duel_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "duel_locked": {
+      "type": "boolean",
+      "default": false
+    },
+    "banned": {
+      "type": "boolean",
+      "default": false
+    },
+    "friends": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": []
+    }
+  },
+  "name": "PlayerData"
+}

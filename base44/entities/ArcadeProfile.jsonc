@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "tossHigh": {
+      "type": "number",
+      "default": 0
+    },
+    "quizHigh": {
+      "type": "number",
+      "default": 0
+    },
+    "arenaCatches": {
+      "type": "number",
+      "default": 0
+    },
+    "tossCatches": {
+      "type": "number",
+      "default": 0
+    },
+    "display_name": {
+      "type": "string",
+      "default": ""
+    },
+    "profile": {
+      "type": "object"
+    }
+  },
+  "name": "ArcadeProfile"
+}
